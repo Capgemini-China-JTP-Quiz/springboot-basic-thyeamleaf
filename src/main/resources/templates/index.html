@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>产品信息</title>
+</head>
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+    }
+
+    tr td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+<div>
+    <table>
+        <td colspan="3" style="text-align: center">产品信息</td>
+        <tr>
+            <td><strong>产品名称</strong></td>
+            <td><strong>产品价格</strong></td>
+            <td><strong>产品有效时间</strong></td>
+        </tr>
+        <tr th:each="product :${product}">
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${#dates.format(product.availableFrom,'yyyy-MM-dd')}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
